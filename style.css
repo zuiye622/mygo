@@ -1,0 +1,331 @@
+/* ===== 全局重置与基础 ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0c0e;
+    background-image: radial-gradient(circle at 20% 30%, #1e2a2f 0%, #0b0e10 90%);
+    font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+    color: #e3e9ed;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+}
+
+/* ===== 主容器 ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(12, 18, 20, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    border: 1px solid #2e3b40;
+    box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(100, 180, 200, 0.1) inset;
+    padding: 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 装饰性渐变边框 */
+.container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 2rem;
+    padding: 2px;
+    background: linear-gradient(135deg, #4a6f7c, #1d2c32, #4a6f7c);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+/* ===== 标题 ===== */
+h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+h1 {
+    font-size: 3.2rem;
+    background: linear-gradient(to right, #c0e0e8, #87b9c9, #b0d4e0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+h1 small {
+    font-size: 1rem;
+    background: #1f3a42;
+    color: #b0d4e0;
+    padding: 0.2rem 0.8rem;
+    border-radius: 30px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    border: 1px solid #3b626e;
+}
+
+.subhead {
+    font-size: 1.2rem;
+    color: #a0b8c2;
+    border-left: 4px solid #3d889b;
+    padding-left: 1.2rem;
+    margin: 0.5rem 0 1.8rem 0;
+    background: linear-gradient(90deg, #1f343b30, transparent);
+    border-radius: 0 8px 8px 0;
+}
+
+/* ===== 徽章 ===== */
+.badge {
+    display: inline-block;
+    background: #14262c;
+    border: 1px solid #2b5767;
+    padding: 0.2rem 1rem;
+    border-radius: 30px;
+    color: #9ac7d6;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+}
+
+/* ===== 二级标题 ===== */
+h2 {
+    font-size: 1.9rem;
+    color: #c2dae4;
+    margin: 2rem 0 1rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #2b3d43;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+h2 i {
+    font-style: normal;
+    color: #70b8cb;
+    font-weight: 300;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+h3 {
+    font-size: 1.3rem;
+    color: #b4d6e2;
+    margin: 1.5rem 0 0.8rem 0;
+}
+
+/* ===== 段落与链接 ===== */
+p {
+    color: #cbd8df;
+    margin-bottom: 1rem;
+}
+
+a {
+    color: #7fc1d4;
+    text-decoration: none;
+    border-bottom: 1px dotted #3b6e7c;
+}
+
+a:hover {
+    color: #b0e2f0;
+    border-bottom-color: #8dc9db;
+}
+
+/* ===== 卡片网格 ===== */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+}
+
+.card {
+    background: #0e181d;
+    border-radius: 1.2rem;
+    padding: 1.5rem 1.3rem;
+    border: 1px solid #25373e;
+    transition: transform 0.15s ease, border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 10px 18px -8px #00000050;
+}
+
+.card:hover {
+    border-color: #3f7788;
+    box-shadow: 0 18px 25px -12px #1f4f5e50, 0 0 0 1px #2b6677 inset;
+    transform: translateY(-3px);
+}
+
+.card strong {
+    color: #c2e0ea;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    border-left: 3px solid #3d889b;
+    padding-left: 0.7rem;
+}
+
+/* ===== 列表 ===== */
+ul, ol {
+    padding-left: 1.5rem;
+    color: #cbd8df;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* ===== 地图标签 ===== */
+.map-tag {
+    display: inline-block;
+    background: #182b31;
+    border-radius: 20px;
+    padding: 0.2rem 1rem;
+    margin: 0.2rem 0.3rem 0.2rem 0;
+    font-size: 0.9rem;
+    border: 1px solid #2e4f5a;
+    color: #b0d4e0;
+}
+
+/* ===== 表格 ===== */
+.table-wrap {
+    overflow-x: auto;
+    border-radius: 1rem;
+    border: 1px solid #25373e;
+    background: #0c1418;
+    margin: 1.2rem 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+th {
+    background: #14262e;
+    color: #bbdae6;
+    text-align: left;
+    padding: 0.9rem 1.2rem;
+    font-weight: 600;
+    border-bottom: 1px solid #2a4752;
+}
+
+td {
+    padding: 0.9rem 1.2rem;
+    border-bottom: 1px solid #1a2e35;
+    color: #c2d4dc;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* ===== 命令与高亮 ===== */
+.command {
+    background: #0f1c22;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    padding: 0.15rem 0.6rem;
+    border-radius: 8px;
+    color: #b3e0f0;
+    font-size: 0.9rem;
+    border: 1px solid #2b4b57;
+    white-space: nowrap;
+}
+
+.highlight {
+    background: #1d3842;
+    color: #dbf0f7;
+    padding: 0.1rem 0.4rem;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/* ===== FAQ ===== */
+.faq-item {
+    background: #0d181e;
+    border-left: 5px solid #2f6879;
+    padding: 1rem 1.4rem;
+    margin-bottom: 0.8rem;
+    border-radius: 0 14px 14px 0;
+    border-top: 1px solid #1d3139;
+    border-right: 1px solid #1d3139;
+    border-bottom: 1px solid #1d3139;
+}
+
+.faq-item p {
+    margin-bottom: 0.2rem;
+}
+
+.faq-item strong {
+    color: #9dcfdf;
+}
+
+/* ===== QQ 群号 ===== */
+.qq-group {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #aae0f0;
+    background: #0e252e;
+    display: inline-block;
+    padding: 0.2rem 1.2rem;
+    border-radius: 40px;
+    border: 1px solid #3f7e91;
+    letter-spacing: 1px;
+    margin: 0.4rem 0;
+}
+
+/* ===== 底部 ===== */
+.footer-note {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    text-align: center;
+    border-top: 1px dashed #2a4a55;
+    color: #8ba9b5;
+    font-size: 0.95rem;
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 640px) {
+    .container {
+        padding: 1.5rem;
+    }
+    h1 {
+        font-size: 2.2rem;
+    }
+    h2 {
+        font-size: 1.6rem;
+    }
+    .command {
+        white-space: normal;
+        word-break: break-word;
+    }
+}
+
+/* ===== 滚动条 ===== */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a1114;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2d4f5c;
+    border-radius: 10px;
+    border: 2px solid #0a1114;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3f7788;
+}
